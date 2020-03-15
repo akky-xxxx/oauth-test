@@ -7,9 +7,13 @@
     "build": "run-p build:*",
     "build:client": "next build ./src",
     "dev": "npm-run-all build serve:dev",
+    "docker": "run-s docker:build docker:run",
+    "docker:build": "docker build ./ -t oauth-test/fe",
+    "docker:run": "docker run -p 30001:3000 -d oauth-test/fe",
     "fix": "run-p fix:*",
     "fix:pack": "fixpack",
-    "serve:dev": "nodemon server/www.ts"
+    "serve:dev": "nodemon server/www.ts",
+    "serve:prod": "ts-node server/www.ts"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
