@@ -1,0 +1,10 @@
+# ツール依存ファイル
+.idea
+# ビルドファイル
+dist
+
+# node_modules
+node_modules
+
+# log
+yarn-error.log

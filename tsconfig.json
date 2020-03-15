@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "allowJs": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "checkJs": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noEmit": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
