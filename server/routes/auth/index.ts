@@ -27,8 +27,8 @@ passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID as string,
   clientSecret: process.env.CLIENT_SECRET as string,
   callbackURL: process.env.CALLBACK_URL as string,
-}, (_accessToken, _refreshToken, profile, cb) => {
-  cb(undefined, extractProfile(profile))
+}, (accessToken, refreshToken, profile, cb) => {
+  cb(undefined, extractProfile(profile, accessToken, refreshToken))
 }))
 
 passport.serializeUser((user, done) => {
@@ -50,7 +50,7 @@ router.get(
 
     next()
   },
-  passport.authenticate(STRATEGY_NAME, { scope: ["email", "profile"] })
+  passport.authenticate(STRATEGY_NAME, { scope: ["email", "profile"], accessType: "offline" })
 )
 
 interface ThisRequest extends Request {

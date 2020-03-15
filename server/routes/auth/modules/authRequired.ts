@@ -12,9 +12,12 @@ import { ENDPOINT } from "../const"
  * main
  */
 const authRequired = (req: Request, res: Response, next: NextFunction) => {
-  // @ts-ignore
-  console.log({ session: req.session.passport })
-  if (!req.user && req.session && !req.isAuthenticated()) {
+  console.log({
+    // @ts-ignore
+    session: req.session.passport,
+    isAuthenticated: req.isAuthenticated(),
+  })
+  if (req.session && !req.isAuthenticated()) {
     req.session.oauth2return = req.originalUrl
     return res.redirect(ENDPOINT.LOGIN)
   }

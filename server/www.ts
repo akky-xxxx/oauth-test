@@ -38,7 +38,7 @@ app.prepare().then(() => {
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 1000 * 5,
+      maxAge: 1000 * 60 * 60 * 24,
     }
   }))
   server.use(passport.initialize())
