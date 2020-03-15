@@ -11,6 +11,7 @@ import passport from "passport"
  * import middleware
  */
 import getRequestHandler from "./middleware/getRequestHandler"
+import refreshToken from "./middleware/refreshToken"
 
 /**
  * import routes
@@ -43,6 +44,7 @@ app.prepare().then(() => {
   }))
   server.use(passport.initialize())
   server.use(passport.session())
+  server.use(refreshToken)
   server.use(auth.router)
   server.use(auth.required)
   server.use(requestHandler)
